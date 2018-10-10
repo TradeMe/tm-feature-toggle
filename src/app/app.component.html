@@ -1,0 +1,11 @@
+<h1>tm-feature-toggle</h1>
+<h2>Routed</h2>
+<a routerLink="./routed-1">1</a>
+<a routerLink="./routed-2">2</a>
+<a routerLink="./routed-3">3</a>
+<router-outlet></router-outlet>
+<h2>Lazy</h2>
+<ng-container
+    *ngIf="load"
+    tmFeatureToggle="myFeature">
+</ng-container>

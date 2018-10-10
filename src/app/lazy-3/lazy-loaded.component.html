@@ -1,0 +1,10 @@
+<h1>3</h1>
+<h2>Routed</h2>
+<a routerLink="./routed-4">4</a>
+<a routerLink="./routed-5">5</a>
+<router-outlet></router-outlet>
+<h2>Lazy</h2>
+<ng-container
+    *ngIf="load"
+    tmFeatureToggle="myFeature2">
+</ng-container>
