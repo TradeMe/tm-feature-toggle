@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/tm-feature-toggle.svg)](https://img.shields.io/npm/v/tm-feature-toggle.svg)
 
-`tm-feature-toggle` is a super experimental proof-of-concept for enabling AoT-friendly, lazy-loadedable components. It is primarily for the purposes of feature toggling and AB testing, but has the secondary benefit of enabling more granular bundle splitting. It also provides helpers for enabling route-based feature toggles. It attempts to provide a nice API for configuring features and whether or not a user can access them, *given the currently available APIs within Angular*. Some of those APIs are *private* and *internal*, so this module should be used with an appropriate level of discomfort.
+`tm-feature-toggle` is a super experimental proof-of-concept for enabling AoT-friendly, lazy-loadable components. It is primarily for the purposes of feature toggling and AB testing, but has the secondary benefit of enabling more granular bundle splitting. It also provides helpers for enabling route-based feature toggles. It attempts to provide a nice API for configuring features and whether or not a user can access them, *given the currently available APIs within Angular*. Some of those APIs are ***private*** and ***internal***, so this module should be used with an appropriate level of discomfort.
 
 ___
 
@@ -16,7 +16,7 @@ ___
 
 ## Hacks
 
-Before you try anything, you need to decide if you want to enable the sweet hacks on @angular/router that make all this possible. It can still work without the hacks, but the API is a little bit worse. 
+Before you try anything, you need to decide if you want to enable the sweet hacks on [@angular/router](https://angular.io/guide/router) that make all this possible. It can still work without the hacks, but the API is a little bit worse. 
 
 ### Enabling hacks
 
@@ -35,11 +35,11 @@ export class AppModule { }
 
 ### Disabling hacks
 
-If you chose to not call **`patchRouter()`**, then you will need to manually configure route paths for each of your lazy-loaded feature modules. See the "Defining features" section of this README for more details.
+If you chose to not call **`patchRouter()`**, then you will need to manually configure route paths for each of your lazy-loaded feature modules. See the ["Defining features"](https://github.com/TradeMe/tm-feature-toggle#defining-features) section of this README for more details.
 
 ### How it works
 
-To see more details about the hacks that enable this functionality, check out `'./lib/patch/router.ts'`.
+To see more details about the hacks that enable this functionality, check out [`'./lib/patch/router.ts'`](https://github.com/TradeMe/tm-feature-toggle/blob/master/projects/tm-feature-toggle/src/lib/patch/router.ts).
 
 ___
 
@@ -95,7 +95,7 @@ export class AppModule { }
 
 **`FeatureToggleModule.forFeature()`** can be used from other lazy-loaded modules, so any variant of a feature can contain their own feature toggle definitions.
 
-___
+
 
 ### Configuring feature flags
 
@@ -154,6 +154,8 @@ export class AppModule { }
 
 A custom implementation can then request the feature configuration asynchronously on a per-user basis, and rearrange that into a set of **`Flags`**.
 
+
+
 ### Consuming features
 
 #### `FeatureToggleDirective`
@@ -190,7 +192,7 @@ This can of course be combined with `*ngIf` to enable components based on applic
 </ng-container>
 ```
 
-### `CanUseFeatureGuard`
+#### `CanUseFeatureGuard`
 
 You can also use the **`CanUseFeatureGuard`** to easily enable or disable route-based features.
 
@@ -211,7 +213,7 @@ import { CanUseFeatureGuard } from 'tm-feature-toggle';
 export class AppModule { }
 ```
 
-It can be used with either `**canAdctivate` or `canActivateChild`.
+It can be used with either [`canActivate`](https://angular.io/guide/router#milestone-5-route-guards) or [`canActivateChild`](https://angular.io/guide/router#milestone-5-route-guards).
 
 ___
 
